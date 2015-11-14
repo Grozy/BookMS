@@ -5,9 +5,14 @@ from django.contrib import admin
 # Create your models here.
 
 class Book(models.Model):
-    book_title = models.CharField('书名',max_length=150)
-    book_borrow_status = models.BooleanField('图书借阅状态',default=False)
-    createTime = models.DateField('购书日期')
+    book_id = models.AutoField()
+    book_name = models.CharField('书名',max_length=150)
+    book_create_time = models.DateField('购书日期')
+    book_logo_url = models.CharField('图片地址', max_length=150)
+
+class BookBorrow(models.Model):
+    book_id = models.AutoField()
+    is_borrowed = models.BooleanField('图书借阅状态', default=False)
 
 class BookList(admin.ModelAdmin):
     list_display = ("book_title", "createTime")

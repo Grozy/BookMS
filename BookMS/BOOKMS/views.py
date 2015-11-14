@@ -15,7 +15,11 @@ def login(request):
     return render_to_response("login.html")
 
 def bookFetch(request):
-    bookFetchResult = Book.objects.get(book_title = u'代码重构')
-    print('%s',bookFetchResult.book_title)
-    html = "<html><body>In hour(s), it will be.</body></html>"
-    return render_to_response(html)
+    bookFetchResult = Book.objects.all()
+    html = "<html><body>%s</body></html>"
+    content = ""
+    for book in bookFetchResult:
+        content = content + (u"<p>书名是%s.录入日期为%s</p>"%(book.book_title,book.createTime))
+
+
+    return HttpResponse(html%content)
