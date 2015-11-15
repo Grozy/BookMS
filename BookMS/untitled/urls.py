@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from BOOKMS.views import hello
 from BOOKMS.views import login
+from BOOKMS.views import booklist
 
 urlpatterns = patterns('',
     # Examples:
@@ -11,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^hello/', hello),
     url(r'^login/', login),
+    url(r'^booklist/$', booklist)
 )
