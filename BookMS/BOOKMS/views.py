@@ -4,6 +4,8 @@ from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from BOOKMS.models import Book
+from BOOKMS.models import UserBaseInfo
+
 import json
 
 # Create your views here.
@@ -21,8 +23,20 @@ def login(request):
 #         content = content + (u"<p>书名是%s.录入日期为%s</p>"%(book.book_title,book.createTime))
 #     return HttpResponse(html%content)
 
+def register(request):
+    name = request.GET.get('name')
+    password = request.GET.get('password')
+    avator_url = request.GET.get('avator')
+    account = request.GET.get('account')
+    userId = request.GET.get('user_id')
+
+    userInfo = UserBaseInfo(user_id = userId,user_name = name,user_password = password, user_account = account, user_avator_url = avator_url)
+    userInfo.save()
+    data = {}
+    data['state'] = True
+    return HttpResponse(json.dump(data))
+
 def booklist(request):
-    response_data = {}
     page = request.GET.get('page')
     size = request.GET.get('size')
     book_fetch = Book.objects.all()
@@ -30,8 +44,11 @@ def booklist(request):
     for book in book_fetch:
         book_info = {}
         book_info['book_name'] = book.book_name
-        book_info['create_time'] = book.book_create_time.datetime
+        book_info['create_time'] = "%s" % book.book_create_time
+        book_info['author'] = book.book_author
+        book_info['book_icon'] = book.book_logo_url
+        book_info['description'] = book.book_description
         book_info_list.append(book_info)
-
-    print(book_info_list)
+        print(book)
     return HttpResponse(json.dumps(book_info_list))
+
