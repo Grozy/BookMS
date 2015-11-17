@@ -24,11 +24,15 @@ class UserBaseInfo(models.Model):
     user_password = models.CharField("密码", default="", max_length=16)
     user_avator_url = models.TextField("头像",null=False, blank=True)
 
+    def __unicode__(self):
+        return self.user_name
+
 class BookBorrow(models.Model):
     book = models.ForeignKey(Book)
     borrow_by_user = models.ForeignKey(UserBaseInfo)
     is_borrowed = models.BooleanField('图书借阅状态', default=False)
     book_borrowed_time = models.DateField('被借阅日期')
+
 
 class UserTypeInfo(models.Model):
     user = models.ForeignKey(UserBaseInfo)
