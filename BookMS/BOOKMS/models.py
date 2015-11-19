@@ -28,8 +28,8 @@ class UserBaseInfo(models.Model):
         return self.user_name
 
 class BookBorrow(models.Model):
-    book = models.ForeignKey(Book)
-    borrow_by_user = models.ForeignKey(UserBaseInfo)
+    book = models.ForeignKey(Book, verbose_name="书名")
+    borrow_by_user = models.ForeignKey(UserBaseInfo,verbose_name="借阅者")
     is_borrowed = models.BooleanField('图书借阅状态', default=False)
     book_borrowed_time = models.DateField('被借阅日期')
 
@@ -43,17 +43,3 @@ class BorrowHistory(models.Model):
     user = models.ForeignKey(UserBaseInfo)
     borrow_time = models.DateField("借阅日期")
     is_over_time = models.BooleanField("是否越期",default=False)
-
-class BookList(admin.ModelAdmin):
-    list_display = ("book_name", "book_create_time")
-
-class UserList(admin.ModelAdmin):
-    list_display = ("user_name", "user_account", "user_password")
-
-class BorrowHistoryDisplay(admin.ModelAdmin):
-    list_display = ("book", "user", "borrow_time")
-
-admin.site.register(Book, BookList)
-admin.site.register(UserBaseInfo, UserList)
-admin.site.register(UserTypeInfo)
-admin.site.register(BorrowHistory, BorrowHistoryDisplay)
