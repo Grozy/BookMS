@@ -14,13 +14,11 @@ from models import Book,UserBaseInfo,BookBorrow,BorrowHistory
 #     book_description = models.TextField('内容简介')
 class BookList(admin.ModelAdmin):
     list_display = ("book_name", "book_create_time")
-    fields = ("book_name","book_author","book_ISBN","book_logo_url","book_paper_type","book_description")
     search_fields = ("book_name", "book_create_time")#搜索
     list_filter = ('book_create_time',)#时间进行过滤  今天、昨天、本周、本月、本年~
     # filter_horizontal = ('book_name') check box
 class UserList(admin.ModelAdmin):
     list_display = ("user_name", "user_account", "user_password")#列表页显示的数据
-    fields = ("user_name", "user_account", "user_password")#修改编辑条目中的排序
 
 class BorrowHistoryDisplay(admin.ModelAdmin):
     list_display = ("book", "user", "borrow_time")
