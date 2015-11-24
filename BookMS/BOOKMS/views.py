@@ -10,7 +10,23 @@ import json
 
 # Create your views here.
 def hello(request):
+    print(request.path)
+    print(request.get_host())
+    print(request.get_full_path())
+    print(request.is_secure())
+    # print(request.META)
+    try:
+        ua = request.META['aaa']
+    except KeyError:
+        ua = 'unknow'
+    print(ua)
     return HttpResponse("Hello world")
+    # render_to_response('search.html')
+
+def search(request):
+    print('%s' % (request.GET['q']))
+
+    return render_to_response('search.html')
 
 def login(request):
     return render_to_response("login.html")
@@ -51,4 +67,3 @@ def booklist(request):
         book_info_list.append(book_info)
         print(book)
     return HttpResponse(json.dumps(book_info_list))
-

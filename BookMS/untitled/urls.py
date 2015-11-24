@@ -4,6 +4,7 @@ from BOOKMS.views import hello
 from BOOKMS.views import login
 from BOOKMS.views import booklist
 from BOOKMS.views import register
+from BOOKMS.views import search
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,4 +16,5 @@ urlpatterns = patterns('',
     url(r'^login/', login),
     url(r'^booklist/$', booklist),
     url(r'^register/', register),
+    url(r'^search/', search),
 )
