@@ -50,6 +50,17 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',#local
 )
 
+STATIC_ROOT = os.path.join(os.path.dirname(__file__),'templates')
+
+STATIC_URL = '/templates/'
+
+STATICFILES_DIRS = (
+    ('assets',os.path.join(STATIC_ROOT,'assets').replace('\\','/') ),
+    # ('js',os.path.join(STATIC_ROOT,'js').replace('\\','/') ),
+    # ('images',os.path.join(STATIC_ROOT,'images').replace('\\','/') ),
+    # ('upload',os.path.join(STATIC_ROOT,'upload').replace('\\','/') ),
+)
+
 ROOT_URLCONF = 'untitled.urls'
 
 WSGI_APPLICATION = 'untitled.wsgi.application'

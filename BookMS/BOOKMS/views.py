@@ -25,11 +25,10 @@ def hello(request):
 
 def search(request):
     print('%s' % (request.GET['q']))
-
     return render_to_response('search.html')
 
 def login(request):
-    return render_to_response("login.html")
+    return render_to_response("login-weibo.html")
 
 # def bookFetch(request):
 #     bookFetchResult = Book.objects.all()
