@@ -31,6 +31,8 @@ def search(request):
 def login(request):
     return render_to_response("login.html")
 
+def weibo(request):
+    return render_to_response('weibo.html')
 # def bookFetch(request):
 #     bookFetchResult = Book.objects.all()
 #     html = "<html><body>%s</body></html>"
