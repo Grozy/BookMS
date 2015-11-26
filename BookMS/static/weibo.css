@@ -1,5 +1,63 @@
-.Login_wrap_header{
-    background-color: #444;
-    width : 920;
-    height: 48;
+.W_reg_header_width_wrap {
+    width: 920px;
+    height: 86px;
+    margin: 0 auto;
+}
+
+.W_header{
+    padding-bottom: 26px;
+    padding-top: 20px;
+}
+
+.W_nologin_logo {
+    background-image: url(http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo_b-x2.png);
+    width: 120px;
+    height: 40px;
+    background-size: 120px 40px;
+    -webkit-background-clip: border-box;
+    -webkit-background-origin: padding-box;
+    text-decoration: none;
+}
+
+.W_nologin_main{
+    height: 300px;
+    margin: 0 auto;
+    width: 920px;
+}
+
+.W_left_box{
+    background-image: url(http://u1.img.mobile.sina.cn/public/files/image/620x300_img56540e697384a.png);
+    background-size: 620px 300px;
+    height: 300px;
+    width: 620px;
+    -webkit-background-clip: border-box;
+    -webkit-background-origin: padding-box;
+    text-decoration: none;
+    float: left;
+}
+
+.W_right_box{
+    height: 300px;
+    width: 300px;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+    background-color: #000;
+    float: right;
+}
+
+.info_header{
+    
+}
+
+.W_nologin.W_nologin_cover3{
+    background-image: url(http://img.t.sinajs.cn/t6/style/images/growth/login/bg_nologin1.jpg?201511131635);
+    position: relative;
+    margin: 0px;
+    background-size: cover;
+    height: 450px;
+}
+
+.bodyBack{
+    margin: 0px;
 }
