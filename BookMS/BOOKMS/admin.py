@@ -2,7 +2,8 @@
 
 from django.contrib import admin
 from models import Book,UserBaseInfo,BookBorrow,BorrowHistory
-
+import xadmin
+from xadmin import  views
 # Register your models here.
 
 # book_name = models.CharField(u'书名', default="",max_length=150)
@@ -27,3 +28,5 @@ class BorrowHistoryDisplay(admin.ModelAdmin):
 admin.site.register(Book, BookList)
 admin.site.register(UserBaseInfo, UserList)
 admin.site.register(BorrowHistory, BorrowHistoryDisplay)
+xadmin.site.register(Book)
+xadmin.site.register(UserBaseInfo)

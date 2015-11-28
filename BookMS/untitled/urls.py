@@ -7,6 +7,10 @@ from BOOKMS.views import register
 from BOOKMS.views import search
 from BOOKMS.views import weibo
 import settings
+import xadmin
+
+from xadmin.plugins import xversion
+xversion.register_models()
 
 urlpatterns = patterns('',
     # Examples:
@@ -21,4 +25,5 @@ urlpatterns = patterns('',
     url(r'^register/', register),
     url(r'^search/', search),
     url(r'^weibo/', weibo),
+    url(r'xadmin/', include(xadmin.site.urls)),
 )
